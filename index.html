@@ -1,0 +1,232 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HabitIt</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        h1 {
+            text-align: center;
+            color: #1a1a1a;
+        }
+        .habit-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .habit-title {
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
+            border-bottom: 1px solid #eee;
+        }
+        .habit-title:hover {
+            background: #f0f0f0;
+        }
+        .habit-title span {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        .habit-title .toggle {
+            font-size: 1.2em;
+            color: #666;
+        }
+        .habit-details {
+            display: none;
+            padding: 15px;
+            border-top: 1px solid #eee;
+        }
+        .habit-details.show {
+            display: block;
+        }
+        .habit-details p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        .habit-details strong {
+            color: #1a1a1a;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 0 10px;
+            }
+            .habit-title span {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Habit Tracker</h1>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Sleep 7.5–8h /night, same window, dark-cold-quiet room</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Sleep is the firmware update for cognition, emotional regulation, and spinal repair—your back will thank you.</p>
+            <p><strong>How:</strong> Sleep diary + wearable HRV or reaction-time test; if latency >15 min or waking >2×/night, fix environment.</p>
+            <p><strong>If Not:</strong> You stay a high-performing zombie: code full of off-by-one bugs, patience at ∅ with daughter.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Lift heavy (compound) + mobility 3×/wk</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Muscle ≈ “bullet-proof body armor” against back pain; strength = metabolic spare battery.</p>
+            <p><strong>How:</strong> Log lifts; add 2.5 kg or 1 rep every week.</p>
+            <p><strong>If Not:</strong> Creeping dad-bod, chronic lumbar whining, and eventual “why does everything hurt?” existential dread.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>90 g+ protein + mostly plants & fish; caffeine ≤400 mg by 2 pm; alcohol <2 drinks/wk</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Fuels recovery, prevents late-night doom-scroll distortions, keeps neurochemistry sane.</p>
+            <p><strong>How:</strong> Track macros 2 weeks each quarter; body-fat calipers or DEXA yearly.</p>
+            <p><strong>If Not:</strong> Roller-coaster energy, gut inflammation, foggy compile-time in brain.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Deep-work blocks (2 × 90 min, phone in Faraday pouch)</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Context switches slaughter throughput; uninterrupted flow is where 80% of code quality lives.</p>
+            <p><strong>How:</strong> Daily log of focused minutes; review pull-request defect rate.</p>
+            <p><strong>If Not:</strong> Lots of busy noise, zero compounding output—AKA career plateaus.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Digital purge: ruthlessly mute, archive, or delete 90% of inputs</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Attention is your scarcest currency; garbage signals breed shallow thinking.</p>
+            <p><strong>How:</strong> Weekly audit: count >10 open browser tabs? You failed.</p>
+            <p><strong>If Not:</strong> Permanent low-grade cognitive load; inability to distinguish signal from hype.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Weekly 1-on-1 with your future self (Roam/Obsidian journal)</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Systems engineer your life: reflect, retro, set next iterations—exactly like production post-mortems.</p>
+            <p><strong>How:</strong> 30-min Sunday review note; track OKR completion % monthly.</p>
+            <p><strong>If Not:</strong> Drift into reactive mode; strategic goals rot in Trello limbo.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Therapy or high-caliber coach bi-weekly</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Even rationalists have blind spots; an external debugger steps through recursive trauma loops.</p>
+            <p><strong>How:</strong> After 3 months you should articulate one “core schema” you’ve unearthed.</p>
+            <p><strong>If Not:</strong> Same emotional edge-cases keep seg-faulting relationships.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Novelty adventures 1×/wk (new park, science kit, bike trail)</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Deposits memories, resets perspective; also stealth cardio.</p>
+            <p><strong>How:</strong> Photo journal; if two consecutive weeks show couch photos—you’re slipping.</p>
+            <p><strong>If Not:</strong> Not a legacy you want.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Monthly “monk mode” weekend: off-grid, hike, or silent retreat</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Pattern-interrupt for strategic clarity; default network resets, new insights surface.</p>
+            <p><strong>How:</strong> Can you state one non-obvious decision Monday morning? If not, retreat was fake.</p>
+            <p><strong>If Not:</strong> Burnout sneaks up; creativity flatlines into incremental refactors only.</p>
+        </div>
+    </div>
+    <div class="habit-item">
+        <div class="habit-title" onclick="toggleDetails(this)">
+            <span>Quarterly audit of “S-curve” skills (e.g., Rust, RL-HF, multimodal infra)</span>
+            <span class="toggle">+</span>
+        </div>
+        <div class="habit-details">
+            <p><strong>Why:</strong> Future employability = stacking S-curves before old ones commoditize.</p>
+            <p><strong>How:</strong> Pick 1 skill/quarter; produce artifact: blog, open-source PR, or talk.</p>
+            <p><strong>If Not:</strong> Wake up obsolete, watching juniors eclipse you with fresh tooling.</p>
+        </div>
+    </div>
+    <script>
+        function toggleDetails(element) {
+            const details = element.nextElementSibling;
+            const toggle = element.querySelector('.toggle');
+            details.classList.toggle('show');
+            toggle.textContent = details.classList.contains('show') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>
