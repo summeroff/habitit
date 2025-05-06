@@ -1,49 +1,42 @@
-/* ----------  HABIT TOGGLE + ARIA ------------------------------------ */
-export function toggleDetails(btn) {
-    const details = btn.nextElementSibling;
-    const expanded = details.classList.toggle('show');
-    btn.setAttribute('aria-expanded', expanded);
-    btn.querySelector('.toggle').textContent = expanded ? '−' : '+';
-  }
+/* —————————— Clipboard helper (already existed) —————————— */
+document.addEventListener('click', e => {
+    const btn = e.target.closest('.ai-btn');
+    if (!btn) return;
   
-  /* ----------  RANDOM DAILY FOCUS ------------------------------------- */
-  export function highlightRandomHabit() {
-    const items = document.querySelectorAll('.habit-item');
-    if (!items.length) return;
-    const pick = items[Math.floor(Math.random() * items.length)];
-    pick.classList.add('highlighted');
-    pick.querySelector('.focus-label').style.display = 'inline';
-  }
-  
-  /* ----------  INIT ---------------------------------------------------- */
-  if (document.readyState !== 'loading') init(); else document.addEventListener('DOMContentLoaded', init);
-  
-  function init() {
-    /* hook up every .habit-title */
-    document.querySelectorAll('.habit-title').forEach((btn, i) => {
-      const details = btn.nextElementSibling;
-      const detailsId = `habit-details-${i}`;
-      details.id = detailsId;
-      btn.setAttribute('role', 'button');
-      btn.setAttribute('tabindex', '0');
-      btn.setAttribute('aria-controls', detailsId);
-      btn.setAttribute('aria-expanded', 'false');
-      btn.addEventListener('click', () => toggleDetails(btn));
-      btn.addEventListener('keyup', e => { if (e.key === 'Enter' || e.key === ' ') toggleDetails(btn); });
-    });
-  
-    /* good‑habits page only */
-    if (document.body.dataset.page === 'good-habits') highlightRandomHabit();
-  }
-  
-/* ----------  AI‑Prompt clipboard copy ----------------------------- */
-document.addEventListener('click', e=>{
-    if(!e.target.classList.contains('ai-btn')) return;
-    const prompt = e.target.dataset.prompt;
-    navigator.clipboard.writeText(prompt).then(()=>{
-      const old = e.target.textContent;
-      e.target.textContent = '✅ Copied!';
-      setTimeout(()=>{ e.target.textContent = old; }, 1500);
+    navigator.clipboard.writeText(btn.dataset.prompt).then(() => {
+      btn.textContent = '✅ Copied';
+      setTimeout(() => (btn.textContent = 'Ask AI'), 1500);
     });
   });
+  
+  /* —————————— Dark / Light theme logic —————————— */
+  const root        = document.documentElement;
+  const savedTheme  = localStorage.getItem('theme');      // 'dark' | 'light' | null
+  const toggleBtn   = document.getElementById('theme-toggle');
+  
+  /* 1 · Apply saved preference (if any) */
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    root.setAttribute('data-theme', savedTheme);
+    setToggleIcon(savedTheme);
+  }
+  
+  /* 2 · Toggle handler */
+  toggleBtn?.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') || getSystemPref();
+    const next    = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    setToggleIcon(next);
+  });
+  
+  /* Helper: icon swap */
+  function setToggleIcon(mode) {
+    if (!toggleBtn) return;
+    toggleBtn.textContent = mode === 'dark' ? '☀️' : '🌙';
+  }
+  
+  /* Helper: system default */
+  function getSystemPref() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
   
