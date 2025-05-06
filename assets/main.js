@@ -40,3 +40,14 @@ document.addEventListener('click', e => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
   
+  window.toggleDetails = function(element) {
+    const details = element.nextElementSibling; // The .habit-details div
+    const toggleSpan = element.querySelector('.toggle'); // The +/– span
+    if (details.classList.contains('show')) {
+      details.classList.remove('show');
+      toggleSpan.textContent = '+';
+    } else {
+      details.classList.add('show');
+      toggleSpan.textContent = '−'; // Unicode minus sign (U+2212)
+    }
+  };  
