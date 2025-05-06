@@ -1,130 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page="good-habits">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HabitIt</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #1a1a1a;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .motivational-quote {
-            text-align: center;
-            font-style: italic;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        .introduction {
-            text-align: center;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            color: #444;
-        }
-        .habit-item {
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.2s ease;
-        }
-        .habit-item.highlighted {
-            border: 2px solid #007BFF;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .habit-title {
-            padding: 15px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #fafafa;
-            border-bottom: 1px solid #eee;
-            transition: all 0.2s ease;
-        }
-        .habit-title:hover {
-            background: #E6F2FF;
-            transform: scale(1.02);
-        }
-        .habit-title span {
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-        .habit-icon {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-        .focus-label {
-            background: #007BFF;
-            color: white;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-size: 0.8em;
-            margin-right: 10px;
-        }
-        .toggle {
-            font-size: 1.2em;
-            color: #666;
-        }
-        .toggle.expanded {
-            font-weight: bold;
-            color: #007BFF;
-        }
-        .habit-details {
-            display: none;
-            padding: 15px;
-            border-top: 1px solid #eee;
-            background: #fff;
-        }
-        .habit-details.show {
-            display: block;
-        }
-        .habit-details p {
-            margin: 10px 0;
-            line-height: 1.5;
-        }
-        .habit-details strong {
-            color: #1a1a1a;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            color: #444;
-        }
-        footer p {
-            margin: 5px 0;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 0 10px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .habit-title span {
-                font-size: 1em;
-            }
-            .habit-icon {
-                font-size: 1.2em;
-            }
-        }
-    </style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>HabitIt • Good Habits Playbook</title>
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
+  <meta name="description" content="Interactive list of life‑changing habits with tracking tips and daily focus."/>
+  <meta property="og:title" content="Good Habits Playbook"/>
+  <meta property="og:description" content="Build compounding routines for health and productivity."/>
+  <meta property="og:image" content="https://your‑domain.com/og-habits.png"/>
+
+  <link rel="stylesheet" href="assets/style.css"/>
 </head>
-<body>
+<body data-page="good-habits">
     <h1>HabitIt</h1>
     <p class="motivational-quote">“The secret of your future is hidden in your daily routine.” — Mike Murdock</p>
     <p class="introduction">Welcome to HabitIt, your personal guide to building life-changing habits. Below, you’ll find a curated list of habits to boost your health, productivity, and well-being. Click each one to discover why it matters, how to track it, and what’s at stake if you skip it. Small steps, big wins—start today!</p>
@@ -274,57 +163,6 @@
         <p>Start your journey today. Your future self will thank you.</p>
     </footer>
     
-    <script>
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-            return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-                try {
-                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                    var firstSheetName = workbook.SheetNames[0];
-                    var worksheet = workbook.Sheets[firstSheetName];
-                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                    var filteredData = jsonData.filter(row => row.some(filledCell));
-                    var headerRowIndex = filteredData.findIndex((row, index) =>
-                        row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                    );
-                    if (headerRowIndex === -1 || headerRowIndex > 25) {
-                        headerRowIndex = 0;
-                    }
-                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
-                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                    return csv;
-                } catch (e) {
-                    console.error(e);
-                    return "";
-                }
-            }
-            return gk_fileData[filename] || "";
-        }
-        
-        function toggleDetails(element) {
-            const details = element.nextElementSibling;
-            const toggle = element.querySelector('.toggle');
-            details.classList.toggle('show');
-            if (details.classList.contains('show')) {
-                toggle.textContent = '−';
-                toggle.classList.add('expanded');
-            } else {
-                toggle.textContent = '+';
-                toggle.classList.remove('expanded');
-            }
-        }
-        
-        window.onload = function() {
-            var habitItems = document.querySelectorAll('.habit-item');
-            var randomIndex = Math.floor(Math.random() * habitItems.length);
-            habitItems[randomIndex].classList.add('highlighted');
-            habitItems[randomIndex].querySelector('.focus-label').style.display = 'inline';
-        }
-    </script>
+    <script type="module" src="assets/main.js"></script>
 </body>
 </html>

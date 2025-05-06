@@ -1,0 +1,72 @@
+/* ===  GLOBAL  ========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+
+:root {
+  --bg: #0d1117;
+  --bg-alt: #161b22;
+  --bg-header: #1f2937;
+  --fg: #e6edf3;
+  --accent: #3b82f6;
+  --highlight: #facc15;
+  --muted: #9ca3af;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ===  LAYOUT BASICS  =================================================== */
+body {
+  margin: 0;
+  padding: 2rem;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.6;
+}
+
+/* Titles / hero --------------------------------------------------------- */
+h1 { font-size: 2.5rem; margin-bottom: .5rem; }
+h2 { font-size: 1.5rem; margin-top: 2.5rem; }
+
+@media (max-width: 600px) { body { padding: 1rem; h1 {font-size:2rem;} }}
+
+/* ===  INDEX CARDS  ===================================================== */
+.cards { display:grid; gap:1.5rem; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+.card {
+  background: var(--bg-alt);
+  border: 1px solid #21262d;
+  border-radius: 1rem;
+  padding: 2rem 1.5rem;
+  transition: transform .25s, box-shadow .25s;
+  text-decoration:none; color:inherit;
+}
+.card:hover, .card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+}
+.card h2 { margin:0 0 .75rem 0; font-size:1.5rem; }
+
+footer { margin-top:4rem; font-size:.85rem; color:var(--muted); }
+
+/* ===  HABIT LIST  ====================================================== */
+.habit-item { background:#fff; border-radius:8px; margin-bottom:10px; overflow:hidden; }
+.habit-item.highlighted { border:2px solid var(--accent); box-shadow:0 4px 8px rgba(0,0,0,.2); }
+
+.habit-title {
+  background:#fafafa; display:flex; align-items:center; gap:.5rem;
+  padding:1rem; cursor:pointer; border-bottom:1px solid #eee;
+  transition:background .2s, transform .2s;
+}
+.habit-title:hover, .habit-title:focus-visible { background:#e6f2ff; transform:scale(1.02); outline:none; }
+.habit-title .toggle { margin-left:auto; font-weight:bold; }
+
+.habit-details { display:none; padding:1rem; background:#fff; border-top:1px solid #eee; }
+.habit-details.show { display:block; }
+
+/* ===  GOLDEN‑AGE TABLE  ================================================= */
+table { width:100%; border-collapse:collapse; margin-top:1rem; font-size:.95rem; }
+th,td { padding:.75rem 1rem; border:1px solid #2d333b; }
+th { background:var(--bg-header); text-align:left; }
+td { background:var(--bg-alt); }
+
+/* ===  DARK/LIGHT TOGGLE STUB (optional)  =============================== */
+/* body.light { --bg:#ffffff; --bg-alt:#f5f5f5; --fg:#1a1a1a; } */
