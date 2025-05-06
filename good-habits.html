@@ -14,155 +14,196 @@
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body data-page="good-habits">
-    <h1>HabitIt</h1>
-    <p class="motivational-quote">“The secret of your future is hidden in your daily routine.” — Mike Murdock</p>
-    <p class="introduction">Welcome to HabitIt, your personal guide to building life-changing habits. Below, you’ll find a curated list of habits to boost your health, productivity, and well-being. Click each one to discover why it matters, how to track it, and what’s at stake if you skip it. Small steps, big wins—start today!</p>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🛌</span>
-            <span>Sleep 7.5–8h /night, same window, dark-cold-quiet room</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Sleep refreshes your mind and body, helping you feel sharp, calm, and ready for the day.</p>
-            <p><strong>How:</strong> Track your sleep with a diary or app. Aim for consistent bedtimes and a cozy, quiet space.</p>
-            <p><strong>If Not:</strong> You might feel worn out, grumpy, or find it hard to focus—like your energy’s running low.</p>
-        </div>
+  <h1>HabitIt</h1>
+  <p class="motivational-quote">“The secret of your future is hidden in your daily routine.” — Mike Murdock</p>
+  <p class="introduction">Welcome to HabitIt, your personal guide to building life‑changing habits. Below, you’ll find a curated list of habits to boost your health, productivity, and well‑being. Click each one to discover why it matters, how to track it, and what’s at stake if you skip it. Small steps, big wins—start today!</p>
+
+  <!-- ——————————————————————————————————— HABITS ——————————————————————————————————— -->
+  <!-- Sleep -------------------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🛌</span>
+      <span>Sleep 7.5–8 h /night, same window, dark‑cold‑quiet room</span>
+      <span class="toggle">+</span>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🏋️</span>
-            <span>Lift heavy (compound) + mobility 3×/wk</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Getting stronger keeps your body feeling good and gives you more energy to enjoy life.</p>
-            <p><strong>How:</strong> Keep a simple log of your workouts and try to get a bit stronger each week—small steps add up!</p>
-            <p><strong>If Not:</strong> You might feel stiff, tired, or notice more little aches creeping in.</p>
-        </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Sleep refreshes your mind and body, helping you feel sharp, calm, and ready for the day.</p>
+      <p><strong>How:</strong> Track your sleep with a diary or app. Aim for consistent bedtimes and a cozy, quiet space.</p>
+      <p><strong>If Not:</strong> You might feel worn out, grumpy, or find it hard to focus—like your energy’s running low.</p>
+      <button class="ai-btn"
+              data-prompt="Create a concise bedtime checklist, optimization ideas, and a next‑morning debrief template that will help me achieve 7.5–8 hours of high‑quality sleep every night in a dark, cool, quiet room.">
+        Ask AI
+      </button>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🍎</span>
-            <span>90 g+ protein + mostly plants & fish; caffeine ≤400 mg by 2 pm; alcohol <2 drinks/wk</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Good food keeps you energized, happy, and ready to tackle your day.</p>
-            <p><strong>How:</strong> Check your meals now and then to balance protein and healthy options. Keep caffeine and drinks in check.</p>
-            <p><strong>If Not:</strong> You might feel sluggish, moody, or like your energy’s all over the place.</p>
-        </div>
+  </div>
+
+  <!-- Lift --------------------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🏋️</span>
+      <span>Lift heavy (compound) + mobility 3×/wk</span>
+      <span class="toggle">+</span>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🧠</span>
-            <span>Deep-work blocks (2 × 90 min, phone in Faraday pouch)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Quiet, focused time helps you do your best and feel proud of what you accomplish.</p>
-            <p><strong>How:</strong> Set aside chunks of time for big tasks, no distractions. Track how it goes each week.</p>
-            <p><strong>If Not:</strong> You might feel scattered, busy but not getting much done.</p>
-        </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Getting stronger keeps your body feeling good and gives you more energy to enjoy life.</p>
+      <p><strong>How:</strong> Keep a simple log of your workouts and try to get a bit stronger each week—small steps add up!</p>
+      <p><strong>If Not:</strong> You might feel stiff, tired, or notice more little aches creeping in.</p>
+      <button class="ai-btn"
+              data-prompt="Design a 3‑days‑per‑week compound‑lift program with mobility warm‑ups, plus an end‑of‑week debrief checklist to track progressive overload and recovery.">
+        Ask AI
+      </button>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🗑️</span>
-            <span>Digital purge: ruthlessly mute, archive, or delete 90% of inputs</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Clearing digital noise helps you stay calm and keep your mind on what matters.</p>
-            <p><strong>How:</strong> Regularly tidy up your phone or computer—cut out stuff you don’t need.</p>
-            <p><strong>If Not:</strong> You might feel swamped or distracted by too much going on.</p>
-        </div>
+  </div>
+
+  <!-- Nutrition --------------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🍎</span>
+      <span>90 g+ protein, mostly plants & fish; caffeine ≤ 400 mg by 14:00; alcohol &lt; 2 drinks/wk</span>
+      <span class="toggle">+</span>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">📓</span>
-            <span>Weekly 1-on-1 with your future self (Roam/Obsidian journal)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Looking back each week helps you grow and make smarter plans for what’s ahead.</p>
-            <p><strong>How:</strong> Spend 30 minutes writing down what worked, what didn’t, and what’s next.</p>
-            <p><strong>If Not:</strong> You might miss chances to improve or keep running into the same hurdles.</p>
-        </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Good food keeps you energized, happy, and ready to tackle your day.</p>
+      <p><strong>How:</strong> Check your meals now and then to balance protein and healthy options. Keep caffeine and drinks in check.</p>
+      <p><strong>If Not:</strong> You might feel sluggish, moody, or like your energy’s all over the place.</p>
+      <!-- no AI button: grocery macros are simple enough -->
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🛋️</span>
-            <span>Therapy or high-caliber coach bi-weekly</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Chatting with someone wise helps you figure things out and feel stronger inside.</p>
-            <p><strong>How:</strong> Book regular talks and be honest about what’s on your mind.</p>
-            <p><strong>If Not:</strong> You might stay stuck on the same worries or feel alone with them.</p>
-        </div>
+  </div>
+
+  <!-- Deep work ---------------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🧠</span>
+      <span>Deep‑work blocks (2 × 90 min, phone in Faraday pouch)</span>
+      <span class="toggle">+</span>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🌄</span>
-            <span>Novelty adventures 1×/wk (new park, science kit, bike trail)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> New experiences make life fun, spark fresh ideas, and keep you moving.</p>
-            <p><strong>How:</strong> Try something new each week and jot it down. If you’re staying in a lot, plan a little outing.</p>
-            <p><strong>If Not:</strong> Things might feel dull or like you’re in a bit of a slump.</p>
-        </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Quiet, focused time helps you do your best and feel proud of what you accomplish.</p>
+      <p><strong>How:</strong> Set aside chunks of time for big tasks, no distractions. Track how it goes each week.</p>
+      <p><strong>If Not:</strong> You might feel scattered, busy but not getting much done.</p>
+      <button class="ai-btn"
+              data-prompt="Generate a deep‑work preparation checklist, a 90‑min task‑planning template, and a quick debrief rubric to analyze focus quality after each session.">
+        Ask AI
+      </button>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🧘</span>
-            <span>Monthly “monk mode” weekend: off-grid, hike, or silent retreat</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> A quiet break clears your head, lifts your spirits, and brings new thoughts.</p>
-            <p><strong>How:</strong> Plan a calm weekend each month to unplug. Write down any big ideas after.</p>
-            <p><strong>If Not:</strong> You might feel drained or like you’re just going through the motions.</p>
-        </div>
+  </div>
+
+  <!-- Digital purge – left as is --------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🗑️</span>
+      <span>Digital purge: ruthlessly mute, archive, or delete 90% of inputs</span>
+      <span class="toggle">+</span>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">💡</span>
-            <span>Quarterly audit of “S-curve” skills (e.g., Rust, RL-HF, multimodal infra)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Picking up new skills keeps you sharp and opens doors down the road.</p>
-            <p><strong>How:</strong> Every few months, learn something new and try it out—like a small project or note.</p>
-            <p><strong>If Not:</strong> You might feel out of touch or miss out on exciting possibilities.</p>
-        </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Clearing digital noise helps you stay calm and keep your mind on what matters.</p>
+      <p><strong>How:</strong> Regularly tidy up your phone or computer—cut out stuff you don’t need.</p>
+      <p><strong>If Not:</strong> You might feel swamped or distracted by too much going on.</p>
     </div>
-    
-    <footer>
-        <p>“The journey of a thousand miles begins with a single step.” — Lao Tzu</p>
-        <p>Start your journey today. Your future self will thank you.</p>
-    </footer>
-    
-    <script type="module" src="assets/main.js"></script>
+  </div>
+
+  <!-- Weekly journal ---------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">📓</span>
+      <span>Weekly 1‑on‑1 with your future self (Roam/Obsidian journal)</span>
+      <span class="toggle">+</span>
+    </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Looking back each week helps you grow and make smarter plans for what’s ahead.</p>
+      <p><strong>How:</strong> Spend 30 minutes writing down what worked, what didn’t, and what’s next.</p>
+      <p><strong>If Not:</strong> You might miss chances to improve or keep running into the same hurdles.</p>
+      <button class="ai-btn"
+              data-prompt="Draft a weekly self‑review template: key wins, failures, metrics, and next‑week priorities, plus a mini‑retrospective questionnaire.">
+        Ask AI
+      </button>
+    </div>
+  </div>
+
+  <!-- Therapy / coach -------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🛋️</span>
+      <span>Therapy or high‑caliber coach, bi‑weekly</span>
+      <span class="toggle">+</span>
+    </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Chatting with someone wise helps you figure things out and feel stronger inside.</p>
+      <p><strong>How:</strong> Book regular talks and be honest about what’s on your mind.</p>
+      <p><strong>If Not:</strong> You might stay stuck on the same worries or feel alone with them.</p>
+      <button class="ai-btn"
+              data-prompt="Provide a pre‑session reflection checklist and post‑session debrief guide for maximizing value from a 50‑minute therapy/coach session.">
+        Ask AI
+      </button>
+    </div>
+  </div>
+
+  <!-- Novelty adventures ------------------------------------------------------ -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🌄</span>
+      <span>Novelty adventures 1×/wk (new park, science kit, bike trail)</span>
+      <span class="toggle">+</span>
+    </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> New experiences make life fun, spark fresh ideas, and keep you moving.</p>
+      <p><strong>How:</strong> Try something new each week and jot it down. If you’re staying in a lot, plan a little outing.</p>
+      <p><strong>If Not:</strong> Things might feel dull or like you’re in a bit of a slump.</p>
+      <button class="ai-btn"
+              data-prompt="Give me a brainstorm list of 10 low‑cost novelty adventures in my city plus a quick packing‑list template and a one‑paragraph reflection prompt.">
+        Ask AI
+      </button>
+    </div>
+  </div>
+
+  <!-- Monk mode -------------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">🧘</span>
+      <span>Monthly “monk mode” weekend: off‑grid, hike, or silent retreat</span>
+      <span class="toggle">+</span>
+    </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> A quiet break clears your head, lifts your spirits, and brings new thoughts.</p>
+      <p><strong>How:</strong> Plan a calm weekend each month to unplug. Write down any big ideas after.</p>
+      <p><strong>If Not:</strong> You might feel drained or like you’re just going through the motions.</p>
+      <!-- leaving AI button off; reflection covered above -->
+    </div>
+  </div>
+
+  <!-- Quarterly audit -------------------------------------------------------- -->
+  <div class="habit-item">
+    <div class="habit-title" onclick="toggleDetails(this)">
+      <span class="focus-label" style="display:none;">Today’s Focus</span>
+      <span class="habit-icon">💡</span>
+      <span>Quarterly audit of “S‑curve” skills (e.g., Rust, RL‑HF, multimodal infra)</span>
+      <span class="toggle">+</span>
+    </div>
+    <div class="habit-details">
+      <p><strong>Why:</strong> Picking up new skills keeps you sharp and opens doors down the road.</p>
+      <p><strong>How:</strong> Every few months, learn something new and try it out—like a small project or note.</p>
+      <p><strong>If Not:</strong> You might feel out of touch or miss out on exciting possibilities.</p>
+      <button class="ai-btn"
+              data-prompt="Generate a quarterly skill‑audit worksheet: pick 3 emerging skills, rate current level, design a 12‑week learning plan, and define success metrics.">
+        Ask AI
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <p>“The journey of a thousand miles begins with a single step.” — Lao Tzu</p>
+    <p>Start your journey today. Your future self will thank you.</p>
+  </footer>
+
+  <script type="module" src="assets/main.js"></script>
 </body>
 </html>

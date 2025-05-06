@@ -36,3 +36,14 @@ export function toggleDetails(btn) {
     if (document.body.dataset.page === 'good-habits') highlightRandomHabit();
   }
   
+/* ----------  AI‑Prompt clipboard copy ----------------------------- */
+document.addEventListener('click', e=>{
+    if(!e.target.classList.contains('ai-btn')) return;
+    const prompt = e.target.dataset.prompt;
+    navigator.clipboard.writeText(prompt).then(()=>{
+      const old = e.target.textContent;
+      e.target.textContent = '✅ Copied!';
+      setTimeout(()=>{ e.target.textContent = old; }, 1500);
+    });
+  });
+  

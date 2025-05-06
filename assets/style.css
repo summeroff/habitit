@@ -48,16 +48,16 @@ h2 { font-size: 1.5rem; margin-top: 2.5rem; }
 footer { margin-top:4rem; font-size:.85rem; color:var(--muted); }
 
 /* ===  HABIT LIST  ====================================================== */
-.habit-item { background:#fff; border-radius:8px; margin-bottom:10px; overflow:hidden; }
-.habit-item.highlighted { border:2px solid var(--accent); box-shadow:0 4px 8px rgba(0,0,0,.2); }
+/* Dark‑theme habit cards */
+.habit-item            { background: var(--bg-alt); color: var(--fg); }
+.habit-title           { background: var(--bg);     border-bottom: 1px solid #2d333b; }
+.habit-details         { background: var(--bg-alt); border-top:    1px solid #2d333b; }
 
-.habit-title {
-  background:#fafafa; display:flex; align-items:center; gap:.5rem;
-  padding:1rem; cursor:pointer; border-bottom:1px solid #eee;
-  transition:background .2s, transform .2s;
+/* Optional: tweak hover contrast */
+.habit-title:hover,
+.habit-title:focus-visible {
+  background: #1e2631;        /* slightly lighter than --bg-alt */
 }
-.habit-title:hover, .habit-title:focus-visible { background:#e6f2ff; transform:scale(1.02); outline:none; }
-.habit-title .toggle { margin-left:auto; font-weight:bold; }
 
 .habit-details { display:none; padding:1rem; background:#fff; border-top:1px solid #eee; }
 .habit-details.show { display:block; }
@@ -70,3 +70,15 @@ td { background:var(--bg-alt); }
 
 /* ===  DARK/LIGHT TOGGLE STUB (optional)  =============================== */
 /* body.light { --bg:#ffffff; --bg-alt:#f5f5f5; --fg:#1a1a1a; } */
+
+/* --- AI Prompt Button ---------------------------------------------- */
+.ai-btn{
+    background: var(--accent);
+    color:#fff; border:0;
+    padding:6px 12px; margin-top:8px;
+    border-radius:4px; font-size:.85rem;
+    cursor:pointer; user-select:none;
+    transition: transform .1s;
+  }
+  .ai-btn:active{ transform:scale(.97); }
+  

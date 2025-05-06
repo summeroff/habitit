@@ -1,39 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>HabitIt • Upgrade Hub</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>HabitIt • Upgrade Hub</title>
 
-  <!-- Favicon & Social Preview -->
-  <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-  <meta name="description" content="Choose your upgrade path: daily habits or the Golden‑Age roadmap."/>
-  <meta property="og:title" content="HabitIt – Self‑Upgrade Hub"/>
-  <meta property="og:description" content="Two blueprints, one mission: level‑up your present and forge the future."/>
-  <meta property="og:image" content="https://your‑domain.com/og-card.png"/>
-  <meta property="og:type" content="website"/>
+    <!-- Favicon & Social Preview -->
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta name="description" content="Choose your upgrade path: daily habits or the Golden‑Age roadmap." />
+    <meta property="og:title" content="HabitIt – Self‑Upgrade Hub" />
+    <meta property="og:description"
+        content="Two blueprints, one mission: level‑up your present and forge the future." />
+    <meta property="og:image" content="https://summeroff.github.io/habitit/og-card.png" />
+    <meta property="og:type" content="website" />
 
-  <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3Ewr7B47sPUwEG3L.woff2" as="font" crossorigin>
-  <link rel="stylesheet" href="assets/style.css"/>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3Ewr7B47sPUwEG3L.woff2" as="font" crossorigin>
+    <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Inter:wght@400;600;800&display=swap">
+
+    <link rel="stylesheet" href="assets/style.css" />
 </head>
+
 <body>
-  <div class="container">
-    <h1>Choose Your Upgrade Path</h1>
-    <p class="tagline">Two blueprints, one mission: level‑up your present and forge the future.</p>
+    <div class="container">
+        <h1>Choose Your Upgrade Path</h1>
+        <p class="tagline">Two blueprints, one mission: level‑up your present and forge the future.</p>
 
-    <div class="cards">
-      <a href="good-habits.html" class="card"><h2>Good Habits<br/>Playbook</h2>
-        <p>Daily routines engineered for health, focus, and long‑term compounding gains.</p></a>
+        <div class="cards">
+            <a href="good-habits.html" class="card">
+                <h2>Good Habits<br />Playbook</h2>
+                <p>Daily routines engineered for health, focus, and long‑term compounding gains.</p>
+            </a>
 
-      <a href="golden-age.html" class="card"><h2>Golden Age<br/>Manifesto</h2>
-        <p>Strategic roadmap to build, ship, and collaborate toward a tech‑driven renaissance.</p></a>
+            <a href="golden-age.html" class="card">
+                <h2>Golden Age<br />Manifesto</h2>
+                <p>Strategic roadmap to build, ship, and collaborate toward a tech‑driven renaissance.</p>
+            </a>
+        </div>
+
+        <footer>© <span id="year"></span> HabitIt. Built for relentless self‑optimizers.</footer>
     </div>
 
-    <footer>© <span id="year"></span> HabitIt. Built for relentless self‑optimizers.</footer>
-  </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
+
 </html>
