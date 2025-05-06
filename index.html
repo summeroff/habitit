@@ -1,330 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HabitIt</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 20px;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        h1 {
-            text-align: center;
-            color: #1a1a1a;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .motivational-quote {
-            text-align: center;
-            font-style: italic;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        .introduction {
-            text-align: center;
-            font-size: 1.1em;
-            margin-bottom: 30px;
-            color: #444;
-        }
-        .habit-item {
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.2s ease;
-        }
-        .habit-item.highlighted {
-            border: 2px solid #007BFF;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .habit-title {
-            padding: 15px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #fafafa;
-            border-bottom: 1px solid #eee;
-            transition: all 0.2s ease;
-        }
-        .habit-title:hover {
-            background: #E6F2FF;
-            transform: scale(1.02);
-        }
-        .habit-title span {
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-        .habit-icon {
-            font-size: 1.5em;
-            margin-right: 10px;
-        }
-        .focus-label {
-            background: #007BFF;
-            color: white;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-size: 0.8em;
-            margin-right: 10px;
-        }
-        .toggle {
-            font-size: 1.2em;
-            color: #666;
-        }
-        .toggle.expanded {
-            font-weight: bold;
-            color: #007BFF;
-        }
-        .habit-details {
-            display: none;
-            padding: 15px;
-            border-top: 1px solid #eee;
-            background: #fff;
-        }
-        .habit-details.show {
-            display: block;
-        }
-        .habit-details p {
-            margin: 10px 0;
-            line-height: 1.5;
-        }
-        .habit-details strong {
-            color: #1a1a1a;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding: 20px;
-            background: #f0f0f0;
-            border-radius: 8px;
-            color: #444;
-        }
-        footer p {
-            margin: 5px 0;
-        }
-        @media (max-width: 600px) {
-            body {
-                padding: 0 10px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            .habit-title span {
-                font-size: 1em;
-            }
-            .habit-icon {
-                font-size: 1.2em;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HabitIt • Golden Age Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-card: #161b22;
+      --fg: #e6edf3;
+      --accent: #3b82f6;
+      --muted: #9ca3af;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+    }
+
+    .container {
+      text-align: center;
+      padding: 3rem 2rem;
+      max-width: 640px;
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    p.tagline {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid #21262d;
+      border-radius: 1rem;
+      padding: 2rem 1.5rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      margin: 0 0 0.75rem 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--fg);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
-    <h1>HabitIt</h1>
-    <p class="motivational-quote">“The secret of your future is hidden in your daily routine.” — Mike Murdock</p>
-    <p class="introduction">Welcome to HabitIt, your personal guide to building life-changing habits. Below, you’ll find a curated list of habits to boost your health, productivity, and well-being. Click each one to discover why it matters, how to track it, and what’s at stake if you skip it. Small steps, big wins—start today!</p>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🛌</span>
-            <span>Sleep 7.5–8h /night, same window, dark-cold-quiet room</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Sleep refreshes your mind and body, helping you feel sharp, calm, and ready for the day.</p>
-            <p><strong>How:</strong> Track your sleep with a diary or app. Aim for consistent bedtimes and a cozy, quiet space.</p>
-            <p><strong>If Not:</strong> You might feel worn out, grumpy, or find it hard to focus—like your energy’s running low.</p>
-        </div>
+  <div class="container">
+    <h1>Choose Your Upgrade Path</h1>
+    <p class="tagline">Two blueprints, one mission: level‑up your present and forge the future.</p>
+
+    <div class="cards">
+      <a href="good-habits.html" class="card">
+        <h2>Good Habits<br>Playbook</h2>
+        <p>Daily routines engineered for health, focus, and long‑term compounding gains.</p>
+      </a>
+
+      <a href="golden-age.html" class="card">
+        <h2>Golden Age<br>Manifesto</h2>
+        <p>Strategic roadmap to build, ship, and collaborate toward a tech‑driven renaissance.</p>
+      </a>
     </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🏋️</span>
-            <span>Lift heavy (compound) + mobility 3×/wk</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Getting stronger keeps your body feeling good and gives you more energy to enjoy life.</p>
-            <p><strong>How:</strong> Keep a simple log of your workouts and try to get a bit stronger each week—small steps add up!</p>
-            <p><strong>If Not:</strong> You might feel stiff, tired, or notice more little aches creeping in.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🍎</span>
-            <span>90 g+ protein + mostly plants & fish; caffeine ≤400 mg by 2 pm; alcohol <2 drinks/wk</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Good food keeps you energized, happy, and ready to tackle your day.</p>
-            <p><strong>How:</strong> Check your meals now and then to balance protein and healthy options. Keep caffeine and drinks in check.</p>
-            <p><strong>If Not:</strong> You might feel sluggish, moody, or like your energy’s all over the place.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🧠</span>
-            <span>Deep-work blocks (2 × 90 min, phone in Faraday pouch)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Quiet, focused time helps you do your best and feel proud of what you accomplish.</p>
-            <p><strong>How:</strong> Set aside chunks of time for big tasks, no distractions. Track how it goes each week.</p>
-            <p><strong>If Not:</strong> You might feel scattered, busy but not getting much done.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🗑️</span>
-            <span>Digital purge: ruthlessly mute, archive, or delete 90% of inputs</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Clearing digital noise helps you stay calm and keep your mind on what matters.</p>
-            <p><strong>How:</strong> Regularly tidy up your phone or computer—cut out stuff you don’t need.</p>
-            <p><strong>If Not:</strong> You might feel swamped or distracted by too much going on.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">📓</span>
-            <span>Weekly 1-on-1 with your future self (Roam/Obsidian journal)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Looking back each week helps you grow and make smarter plans for what’s ahead.</p>
-            <p><strong>How:</strong> Spend 30 minutes writing down what worked, what didn’t, and what’s next.</p>
-            <p><strong>If Not:</strong> You might miss chances to improve or keep running into the same hurdles.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🛋️</span>
-            <span>Therapy or high-caliber coach bi-weekly</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Chatting with someone wise helps you figure things out and feel stronger inside.</p>
-            <p><strong>How:</strong> Book regular talks and be honest about what’s on your mind.</p>
-            <p><strong>If Not:</strong> You might stay stuck on the same worries or feel alone with them.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🌄</span>
-            <span>Novelty adventures 1×/wk (new park, science kit, bike trail)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> New experiences make life fun, spark fresh ideas, and keep you moving.</p>
-            <p><strong>How:</strong> Try something new each week and jot it down. If you’re staying in a lot, plan a little outing.</p>
-            <p><strong>If Not:</strong> Things might feel dull or like you’re in a bit of a slump.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">🧘</span>
-            <span>Monthly “monk mode” weekend: off-grid, hike, or silent retreat</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> A quiet break clears your head, lifts your spirits, and brings new thoughts.</p>
-            <p><strong>How:</strong> Plan a calm weekend each month to unplug. Write down any big ideas after.</p>
-            <p><strong>If Not:</strong> You might feel drained or like you’re just going through the motions.</p>
-        </div>
-    </div>
-    
-    <div class="habit-item">
-        <div class="habit-title" onclick="toggleDetails(this)">
-            <span class="focus-label" style="display:none;">Today’s Focus</span>
-            <span class="habit-icon">💡</span>
-            <span>Quarterly audit of “S-curve” skills (e.g., Rust, RL-HF, multimodal infra)</span>
-            <span class="toggle">+</span>
-        </div>
-        <div class="habit-details">
-            <p><strong>Why:</strong> Picking up new skills keeps you sharp and opens doors down the road.</p>
-            <p><strong>How:</strong> Every few months, learn something new and try it out—like a small project or note.</p>
-            <p><strong>If Not:</strong> You might feel out of touch or miss out on exciting possibilities.</p>
-        </div>
-    </div>
-    
+
     <footer>
-        <p>“The journey of a thousand miles begins with a single step.” — Lao Tzu</p>
-        <p>Start your journey today. Your future self will thank you.</p>
+      © <span id="year"></span> HabitIt. Built for relentless self‑optimizers.
     </footer>
-    
-    <script>
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function filledCell(cell) {
-            return cell !== '' && cell != null;
-        }
-        function loadFileData(filename) {
-            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-                try {
-                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                    var firstSheetName = workbook.SheetNames[0];
-                    var worksheet = workbook.Sheets[firstSheetName];
-                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                    var filteredData = jsonData.filter(row => row.some(filledCell));
-                    var headerRowIndex = filteredData.findIndex((row, index) =>
-                        row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-                    );
-                    if (headerRowIndex === -1 || headerRowIndex > 25) {
-                        headerRowIndex = 0;
-                    }
-                    var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
-                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                    return csv;
-                } catch (e) {
-                    console.error(e);
-                    return "";
-                }
-            }
-            return gk_fileData[filename] || "";
-        }
-        
-        function toggleDetails(element) {
-            const details = element.nextElementSibling;
-            const toggle = element.querySelector('.toggle');
-            details.classList.toggle('show');
-            if (details.classList.contains('show')) {
-                toggle.textContent = '−';
-                toggle.classList.add('expanded');
-            } else {
-                toggle.textContent = '+';
-                toggle.classList.remove('expanded');
-            }
-        }
-        
-        window.onload = function() {
-            var habitItems = document.querySelectorAll('.habit-item');
-            var randomIndex = Math.floor(Math.random() * habitItems.length);
-            habitItems[randomIndex].classList.add('highlighted');
-            habitItems[randomIndex].querySelector('.focus-label').style.display = 'inline';
-        }
-    </script>
+  </div>
+
+  <script>
+    // auto‑update footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
