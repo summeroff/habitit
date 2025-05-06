@@ -6,139 +6,140 @@
   <title>Golden Age Manifesto</title>
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml"/>
-  <meta name="description" content="Action‑oriented roadmap to build and ship your personal golden age."/>
+  <meta name="description" content="Action-oriented roadmap to build and ship your personal golden age."/>
   <meta property="og:title" content="Golden Age Manifesto"/>
-  <meta property="og:description" content="Less kumbaya, more commits – forge the 21st‑century renaissance."/>
-  <meta property="og:image" content="https://summeroff.github.io/habitit/og-card.png" />
-  
+  <meta property="og:description" content="Less kumbaya, more commits – forge the 21st-century renaissance."/>
+  <meta property="og:image" content="https://summeroff.github.io/habitit/og-card.png"/>
+
   <link rel="stylesheet" href="https://fonts.bunny.net/css?family=Inter:400,600,800">
   <link rel="stylesheet" href="assets/style.css"/>
 </head>
 <body>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark / light">🌙</button>
+  <!-- theme toggle -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark / light">🌙</button>
 
-  <h1>Forge&nbsp;Your&nbsp;Golden&nbsp;Age</h1>
-  <blockquote>
-    Nobody’s mailing you a “golden age” starter kit. Monarchs are museum pieces, Marx is a paperback, and the sandbox runs on silicon. Act accordingly.
-  </blockquote>
+  <div class="container">
+    <h1>Forge Your Golden Age</h1>
+    <blockquote>
+      Nobody’s mailing you a “golden age” starter kit. Monarchs are museum pieces, Marx is a paperback, and the sandbox runs on silicon. Act accordingly.
+    </blockquote>
 
-  <h2>Golden Age Playbook 2.0 <small>(Less&nbsp;kumbaya,&nbsp;more&nbsp;commits)</small></h2>
-  <table>
-    <thead>
-      <tr><th>Phase</th><th>What To Do</th><th>Why It Matters</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>1.&nbsp;Audit Your Stack</strong></td>
-        <td>
-          Inventory your skills, tools, and weak spots like you’re pen‑testing your own life.
-          <button class="ai-btn"
-                  data-prompt="Produce a self‑audit checklist covering skill gaps, tooling inefficiencies, and personal bottlenecks; output as a table with priority scores.">
-            AI Assist
-          </button>
-        </td>
-        <td>Blind spots kill momentum; clarity is free performance.</td>
-      </tr>
+    <h2>Golden Age Playbook 2.0 <small>(Less kumbaya, more commits)</small></h2>
+    <div class="cards">
 
-      <tr>
-        <td><strong>2.&nbsp;Jack In</strong></td>
-        <td>
+      <div class="card">
+        <h2>1. Audit Your Stack</h2>
+        <p>
+          Inventory your skills, tools, and weak spots like you’re pen-testing your own life.
+        </p>
+        <button class="ai-btn"
+                data-prompt="Produce a self-audit checklist covering skill gaps, tooling inefficiencies, and personal bottlenecks; output as a table with priority scores.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> Blind spots kill momentum; clarity is free performance.</p>
+      </div>
+
+      <div class="card">
+        <h2>2. Jack In</h2>
+        <p>
           Pair every craft you care about with an AI sidekick.<br>
-          • Code → <code>Copilot</code><br>• Design → Diffusion models<br>• Research → LLM chains
-          <button class="ai-btn"
-                  data-prompt="List top AI copilots for code, design, and research; then generate a three‑step integration plan for each into my daily workflow.">
-            AI Assist
-          </button>
-        </td>
-        <td>Exponential leverage beats linear grind.</td>
-      </tr>
+          • Code → <code>Copilot</code><br>
+          • Design → Diffusion models<br>
+          • Research → LLM chains
+        </p>
+        <button class="ai-btn"
+                data-prompt="List top AI copilots for code, design, and research; then generate a three-step integration plan for each into my daily workflow.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> Exponential leverage beats linear grind.</p>
+      </div>
 
-      <tr>
-        <td><strong>3.&nbsp;Ship Micro‑Golden Moments Weekly</strong></td>
-        <td>
-          Publish, launch, or demo <em>something</em> every 7 days—blog post, library, beat, meme, hardware hack.
-          <button class="ai-btn"
-                  data-prompt="Create a 7‑day shipping sprint template: idea capture, MVP scope, launch checklist, and Friday retro questions.">
-            AI Assist
-          </button>
-        </td>
-        <td>Rapid iteration creates compound credibility and feedback loops.</td>
-      </tr>
+      <div class="card">
+        <h2>3. Ship Micro-Golden Moments Weekly</h2>
+        <p>
+          Publish, launch, or demo <em>something</em> every 7 days—blog post, library, beat, meme, hardware hack.
+        </p>
+        <button class="ai-btn"
+                data-prompt="Create a 7-day shipping sprint template: idea capture, MVP scope, launch checklist, and Friday retro questions.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> Rapid iteration creates compound credibility and feedback loops.</p>
+      </div>
 
-      <tr>
-        <td><strong>4.&nbsp;Build Your Guild</strong></td>
-        <td>
-          Curate a five‑person mastermind + a wider signal group (Discord, local hackerspace, etc.). Build in public.
-          <button class="ai-btn"
-                  data-prompt="Draft a checklist for forming a 5‑person mastermind: vetting criteria, first‑meeting agenda, and recurring cadence.">
-            AI Assist
-          </button>
-        </td>
-        <td>Lone‑wolf romance is dead; network effects are obligatory.</td>
-      </tr>
+      <div class="card">
+        <h2>4. Build Your Guild</h2>
+        <p>
+          Curate a five-person mastermind + a wider signal group (Discord, local hackerspace, etc.). Build in public.
+        </p>
+        <button class="ai-btn"
+                data-prompt="Draft a checklist for forming a 5-person mastermind: vetting criteria, first-meeting agenda, and recurring cadence.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> Lone-wolf romance is dead; network effects are obligatory.</p>
+      </div>
 
-      <tr>
-        <td><strong>5.&nbsp;Automate Trash Work</strong></td>
-        <td>
-          Cron jobs, GitHub Actions, home‑assistant bots—if it’s boring, script it.
-          <button class="ai-btn"
-                  data-prompt="Give me the top 10 low‑hanging automation targets in a software engineer’s life, with suggested tools and first steps.">
-            AI Assist
-          </button>
-        </td>
-        <td>You need calendar space for creation, not clerical penance.</td>
-      </tr>
+      <div class="card">
+        <h2>5. Automate Trash Work</h2>
+        <p>
+          Cron jobs, GitHub Actions, home-assistant bots—if it’s boring, script it.
+        </p>
+        <button class="ai-btn"
+                data-prompt="Give me the top 10 low-hanging automation targets in a software engineer’s life, with suggested tools and first steps.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> You need calendar space for creation, not clerical penance.</p>
+      </div>
 
-      <tr>
-        <td><strong>6.&nbsp;Seek Positive‑Sum Arenas</strong></td>
-        <td>
-          Join ecosystems where one person’s win levels everybody up (open‑source, DAOs, maker labs).
-          <button class="ai-btn"
-                  data-prompt="Propose three positive‑sum communities (online/offline) aligned with open‑source, DAOs, or maker culture, plus a 30‑day engagement plan.">
-            AI Assist
-          </button>
-        </td>
-        <td>Faster cross‑pollination, fewer zero‑sum knife fights.</td>
-      </tr>
+      <div class="card">
+        <h2>6. Seek Positive-Sum Arenas</h2>
+        <p>
+          Join ecosystems where one person’s win levels everybody up (open-source, DAOs, maker labs).
+        </p>
+        <button class="ai-btn"
+                data-prompt="Propose three positive-sum communities (online/offline) aligned with open-source, DAOs, or maker culture, plus a 30-day engagement plan.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> Faster cross-pollination, fewer zero-sum knife fights.</p>
+      </div>
 
-      <tr>
-        <td><strong>7.&nbsp;Invest in Bio‑Uptime</strong></td>
-        <td>
-          Sleep, lift, zone‑2 cardio, micronutrients—yes, the meat‑sack matters.
-          <button class="ai-btn"
-                  data-prompt="Generate a weekly bio‑uptime tracker covering sleep, lifting, zone‑2 cardio, micronutrient intake, and recovery markers.">
-            AI Assist
-          </button>
-        </td>
-        <td>Latent potential is worthless if you’re fried.</td>
-      </tr>
+      <div class="card">
+        <h2>7. Invest in Bio-Uptime</h2>
+        <p>
+          Sleep, lift, zone-2 cardio, micronutrients—yes, the meat-sack matters.
+        </p>
+        <button class="ai-btn"
+                data-prompt="Generate a weekly bio-uptime tracker covering sleep, lifting, zone-2 cardio, micronutrient intake, and recovery markers.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> Latent potential is worthless if you’re fried.</p>
+      </div>
 
-      <tr>
-        <td><strong>8.&nbsp;Broadcast &amp; Iterate</strong></td>
-        <td>
+      <div class="card">
+        <h2>8. Broadcast &amp; Iterate</h2>
+        <p>
           Share progress brutally honestly; solicit critique; pivot fast.
-          <button class="ai-btn"
-                  data-prompt="Compose a public‑update template with KPI snapshot, blockers, asks, and next‑step pivot logic for rapid iteration.">
-            AI Assist
-          </button>
-        </td>
-        <td>Feedback&nbsp;&gt;&nbsp;ego. Course‑correct before you ossify.</td>
-      </tr>
-    </tbody>
-  </table>
+        </p>
+        <button class="ai-btn"
+                data-prompt="Compose a public-update template with KPI snapshot, blockers, asks, and next-step pivot logic for rapid iteration.">
+          AI Assist
+        </button>
+        <p><em>Why:</em> Feedback &gt; ego. Course-correct before you ossify.</p>
+      </div>
 
-  <h2>Mental Firmware Updates</h2>
-  <ul>
-    <li><strong>Politician as Savior ≡ Legacy Malware</strong> – Uninstall. Patch your expectation architecture.</li>
-    <li><strong>Failure == Data</strong> – Treat every busted prototype like telemetry, not an obituary.</li>
-    <li><strong>AI Compass ≠ Autopilot</strong> – Great for vectors; <em>you</em> still throttle the engines.</li>
-  </ul>
+    </div><!-- /.cards -->
 
-  <footer>
-    Now quit scrolling and push a commit. <br>— Your Brutally Honest Advisor
-  </footer>
+    <h2>Mental Firmware Updates</h2>
+    <ul>
+      <li><strong>Politician as Savior ≡ Legacy Malware</strong> – Uninstall. Patch your expectation architecture.</li>
+      <li><strong>Failure == Data</strong> – Treat every busted prototype like telemetry, not an obituary.</li>
+      <li><strong>AI Compass ≠ Autopilot</strong> – Great for vectors; <em>you</em> still throttle the engines.</li>
+    </ul>
 
-  <!-- Glue the AI buttons -->
+    <footer>
+      Now quit scrolling and push a commit. <br/>— Your Brutally Honest Advisor
+    </footer>
+  </div><!-- /.container -->
+
   <script type="module" src="assets/main.js"></script>
 </body>
 </html>
