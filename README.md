@@ -26,9 +26,7 @@ $ npx serve .            # or python -m http.server
 
 ## 🚀 Deploy to GitHub Pages
 
-1. **Enable Pages** in repo settings → **Deploy from `docs/`** (or `main` root).
-2. If you pick `docs/`, move HTML files into `/docs` or update your build script.
-3. Push. GitHub builds & serves at `https://<you>.github.io/habitit`.
+**Enable Pages** in repo settings → **Deploy from branch
 
 > No build pipeline needed – it’s pure HTML/CSS/JS.
 
