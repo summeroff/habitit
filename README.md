@@ -1,6 +1,9 @@
 # HabitIt – Self‑Upgrade Hub
 
 Two lean HTML pages. One dark‑mode index. Zero frameworks. 100 % focus on habit‑stacking and building your personal golden age.
+## 🌐 Live Demo
+
+**👉 [View HabitIt Live](https://summeroff.github.io/habitit/)**
 
 ## 💡 What’s Inside
 
